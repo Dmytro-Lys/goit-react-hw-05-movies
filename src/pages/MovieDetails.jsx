@@ -1,14 +1,18 @@
 import Notiflix from 'notiflix';
 import 'notiflix/src/notiflix.css';
 import { Suspense, useState, useEffect, useCallback } from "react";
-import { Link, Outlet,  useParams } from "react-router-dom";
-import { Container, CardWrapper } from "./MovieDetails.styled";
+import { Outlet,  useParams, useLocation } from "react-router-dom";
+import { Container, List, Link } from "./MovieDetails.styled";
 import Movie from "../components/Movie/Movie"
 import { getMovieById } from "../service/api";
+import { BackLink } from "../components/BackLink/BackLink";
+
 const MovieDetails = () => {
     const { movieId } = useParams();
-    const [movie, setMovie] = useState([]);
-    // const movie = {}
+  const [movie, setMovie] = useState([]);
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? "/goit-react-hw-05-movies/movies";
+  const { pathname } = backLinkHref;
     const onError = err => Notiflix.Notify.failure(err.message);
     
     const fetchMovie = useCallback(async () => {
@@ -26,17 +30,20 @@ const MovieDetails = () => {
     }, [fetchMovie]);
 
     return (
-        <main>
-            {movie.length>0 && <Movie movie={movie} />}
+      <main>
+        <BackLink to={backLinkHref}>Back to {pathname.endsWith("/movies") ? "movies": "home" }</BackLink>
+           {movie.length > 0 && <Movie movie={movie} />}
+            <Container>
             <h2>Additional information</h2>    
-            <ul>
+            <List>
                 <li>
-                  <Link to="cast">Cast</Link>
+              <Link to="cast" state={{ from: backLinkHref }}>Cast</Link>
                 </li>
                 <li>
-                  <Link to="reviews">Reviews</Link>
+                  <Link to="reviews" state={{ from: backLinkHref }}>Reviews</Link>
                 </li>
-            </ul>
+          </List>
+          </Container>
        <Suspense fallback={<div>Loading subpage...</div>}>
           <Outlet />
       </Suspense>

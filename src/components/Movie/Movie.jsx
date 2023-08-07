@@ -1,4 +1,4 @@
-import { Container, CardWrapper } from "./Movie.styled";
+import { Container, CardWrapper, MovieTitle } from "./Movie.styled";
 
 const Movie = ({ movie }) => {
     const posterUrl = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2"
@@ -15,12 +15,12 @@ const Movie = ({ movie }) => {
                     <p>User score:{` ${Math.floor(vote_average * 10)}%`}</p>
                     </div>
                     <div>
-                        <h3>Overview</h3>
+                        <MovieTitle>Overview</MovieTitle>
                         <p>{overview}</p>
                     </div>
                     <div>
-                        <h3>Genres</h3>
-                    <p>{genres.map(item => item.name).join(" ")}</p>
+                        <MovieTitle>Genres</MovieTitle>
+                        <p>{genres.map(item => item.name).join(" ")}</p>
                     </div>
                 </CardWrapper>
            </Container>

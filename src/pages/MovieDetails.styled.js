@@ -1,14 +1,28 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const Container = styled.div`
-  margin-top: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
-  display: flex;
-  gap: 20px;
-`;
-
-export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 8px;
+`;
+
+
+export const List = styled.ul`
+  
+  display: flex;
+  gap: 16px;
+`;
+
+export const Link = styled(NavLink)`
+  padding: 4px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+
+  &.active {
+    color: yellow;
+    background-color: blue;
+  }
 `;

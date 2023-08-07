@@ -10,7 +10,6 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
     const query = searchParams.get("query") ?? "";
-    console.log(query)
   const onError = err => Notiflix.Notify.failure(err.message)
   
   const fetchMovies = useCallback(async () => {
