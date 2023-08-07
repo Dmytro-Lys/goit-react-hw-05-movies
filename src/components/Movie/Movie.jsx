@@ -1,0 +1,30 @@
+import { Container, CardWrapper } from "./Movie.styled";
+
+const Movie = ({ movie }) => {
+    const posterUrl = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2"
+    const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700'
+    const {genres, overview, title, vote_average, release_date, poster_path} = movie[0]
+    return (
+         <Container>
+                <div>
+                    <img src={poster_path ? `${posterUrl}${poster_path}`: defaultImg} alt="" />
+                </div>
+                <CardWrapper>
+                    <h2>{`${title} (${release_date.slice(0,4)})`}</h2>
+                    <div>
+                    <p>User score:{` ${Math.floor(vote_average * 10)}%`}</p>
+                    </div>
+                    <div>
+                        <h3>Overview</h3>
+                        <p>{overview}</p>
+                    </div>
+                    <div>
+                        <h3>Genres</h3>
+                    <p>{genres.map(item => item.name).join(" ")}</p>
+                    </div>
+                </CardWrapper>
+           </Container>
+    )
+}
+
+export default Movie;
