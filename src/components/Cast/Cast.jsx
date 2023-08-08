@@ -29,12 +29,13 @@ const Cast = () => {
     useEffect(() => {
       fetchMovieCast()
     }, [fetchMovieCast]);  
-
+// 447277/cast -  duble id cast
   return (
       <>
           {!firstRender && (castList.length > 0 ?
               (<Container >
-                  {castList.map(({ id, profile_path, name }) => (
+          {castList.filter((item, index, array) => array.findIndex(actor => actor.id === item.id) === index)
+            .map(({ id, profile_path, name }) => (
                       <CardWrapper key={id}>
                           <img src={profile_path ? `${baseUrl}${profile_path}` : defaultImg} alt="" />
                           <Name>{name}</Name>

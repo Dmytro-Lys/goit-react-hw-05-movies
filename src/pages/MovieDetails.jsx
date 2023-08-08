@@ -11,8 +11,9 @@ const MovieDetails = () => {
     const { movieId } = useParams();
   const [movie, setMovie] = useState([]);
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? "/movies";
-  const { pathname } = backLinkHref;
+
+  const backLinkHref = location.state?.from ?? { pathname: "/movies" };
+  const { pathname} = backLinkHref ;
     const onError = err => Notiflix.Notify.failure(err.message);
     
     const fetchMovie = useCallback(async () => {
