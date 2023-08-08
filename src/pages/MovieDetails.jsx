@@ -11,7 +11,7 @@ const MovieDetails = () => {
     const { movieId } = useParams();
   const [movie, setMovie] = useState([]);
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? "/goit-react-hw-05-movies/movies";
+  const backLinkHref = location.state?.from ?? "/movies";
   const { pathname } = backLinkHref;
     const onError = err => Notiflix.Notify.failure(err.message);
     
@@ -34,7 +34,7 @@ const MovieDetails = () => {
         <BackLink to={backLinkHref}>Back to {pathname.endsWith("/movies") ? "movies": "home" }</BackLink>
            {movie.length > 0 && <Movie movie={movie} />}
             <Container>
-            <h2>Additional information</h2>    
+            <h3>Additional information</h3>    
             <List>
                 <li>
               <Link to="cast" state={{ from: backLinkHref }}>Cast</Link>

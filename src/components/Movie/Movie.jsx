@@ -1,4 +1,4 @@
-import { Container, CardWrapper, MovieTitle } from "./Movie.styled";
+import { Container, CardWrapper, MovieTitle, PosterWrapper } from "./Movie.styled";
 
 const Movie = ({ movie }) => {
     const posterUrl = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2"
@@ -6,9 +6,9 @@ const Movie = ({ movie }) => {
     const {genres, overview, title, vote_average, release_date, poster_path} = movie[0]
     return (
          <Container>
-                <div>
+                <PosterWrapper>
                     <img src={poster_path ? `${posterUrl}${poster_path}`: defaultImg} alt="" />
-                </div>
+                </PosterWrapper>
                 <CardWrapper>
                     <h2>{`${title} (${release_date.slice(0,4)})`}</h2>
                     <div>

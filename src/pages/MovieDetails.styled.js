@@ -12,13 +12,14 @@ export const List = styled.ul`
   
   display: flex;
   gap: 16px;
+  margin-bottom: 8px;
 `;
 
 export const Link = styled(NavLink)`
   padding: 4px 16px;
   border-radius: 4px;
   text-decoration: none;
-  color: black;
+  color: blue;
   font-weight: 500;
 
   &.active {

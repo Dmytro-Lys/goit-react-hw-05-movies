@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const CardWrapper = styled.div`
   border: 1px solid black;
   border-radius: 4px;
-
+  overflow: hidden;
   > a {
     text-decoration: none;
   }

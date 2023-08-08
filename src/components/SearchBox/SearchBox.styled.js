@@ -22,7 +22,7 @@ export const Button = styled.button`
   background-color: lightcyan;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   border: 0;
-  border-left: 1px solid;    
+  border-left: 2px solid;    
  border-radius: 0px 4px 4px 0px;    
  
   cursor: pointer;
