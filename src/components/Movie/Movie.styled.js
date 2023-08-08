@@ -11,6 +11,7 @@ export const Container = styled.div`
 
 export const PosterWrapper = styled.div`
  min-width: 260px;
+ max-width: 260px;
  
 `;
 

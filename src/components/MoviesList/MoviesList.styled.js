@@ -4,6 +4,7 @@ export const Container = styled.div`
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
+  justify-content: center;
   gap: 16px;
 `;
 

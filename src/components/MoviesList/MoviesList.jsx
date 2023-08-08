@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Container, CardWrapper, MovieName } from "./MoviesList.styled";
+import PropTypes from "prop-types";
 
 export const MoviesList = ({ movies }) => {
   const baseUrl = 'https://themoviedb.org/t/p/w220_and_h330_face'  
@@ -19,3 +20,7 @@ export const MoviesList = ({ movies }) => {
     </Container>
   );
 };
+
+MoviesList.propTypes = {
+  movies: PropTypes.array.isRequired
+}

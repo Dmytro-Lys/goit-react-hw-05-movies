@@ -2,7 +2,8 @@ import Notiflix from 'notiflix';
 import 'notiflix/src/notiflix.css';
 import { MoviesList } from "../components/MoviesList/MoviesList";
 import { getTrending } from "../service/api";
-import {useState, useEffect, useCallback} from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import {Title} from "./Home.styled"
 
 const Home = () => {
    const [movies, setMovies] = useState([]);
@@ -23,7 +24,7 @@ const Home = () => {
   
   return (
     <main>
-      <h1>Tranding today</h1>
+      <Title>Tranding today</Title>
       {movies.length>0 && <MoviesList movies={movies} />}
     </main>
   );

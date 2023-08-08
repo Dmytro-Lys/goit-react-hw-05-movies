@@ -1,4 +1,5 @@
 import { Container, CardWrapper, MovieTitle, PosterWrapper } from "./Movie.styled";
+import PropTypes from "prop-types"
 
 const Movie = ({ movie }) => {
     const posterUrl = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2"
@@ -25,6 +26,10 @@ const Movie = ({ movie }) => {
                 </CardWrapper>
            </Container>
     )
+}
+
+Movie.propTypes = {
+    movie: PropTypes.array.isRequired
 }
 
 export default Movie;

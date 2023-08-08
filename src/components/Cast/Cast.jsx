@@ -10,7 +10,8 @@ const Cast = () => {
   const baseUrl = 'https://www.themoviedb.org/t/p/w138_and_h175_face'  
   const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700'
     const { movieId } = useParams();
-    const [castList, setCastList] = useState([]);
+  const [castList, setCastList] = useState([]);
+  const [firstRender, setFirstRender] = useState(true);
   const onError = err => Notiflix.Notify.failure(err.message);
     
     const fetchMovieCast = useCallback(async () => {
@@ -20,8 +21,10 @@ const Cast = () => {
         setCastList(result.cast)
     } catch (error) {
       onError(error)
+    } finally {
+      if (firstRender) setFirstRender(false)
     };
-    }, [movieId])
+    }, [movieId, firstRender])
     
     useEffect(() => {
       fetchMovieCast()
@@ -29,7 +32,7 @@ const Cast = () => {
 
   return (
       <>
-          {castList.length > 0 ?
+          {!firstRender && (castList.length > 0 ?
               (<Container >
                   {castList.map(({ id, profile_path, name }) => (
                       <CardWrapper key={id}>
@@ -37,7 +40,7 @@ const Cast = () => {
                           <Name>{name}</Name>
                       </CardWrapper>
                   ))}
-              </Container >) : (<p>No cast information available</p>)}
+              </Container >) : (<p>No cast information available</p>))}
     </>
   );
 };

@@ -30,9 +30,11 @@ async function getMovieById(movieId) {
   
   // cast //
   // name, profile_path
-}
-// reviews //
+
+  // reviews //
 // author, content
+}
+
 
 // https://api.themoviedb.org/3/trending/movie/i2GVEvltEu3BXn5crBSxgKuTaca.jpg
 // src="https://themoviedb.org/t/p/w220_and_h330_face/i2GVEvltEu3BXn5crBSxgKuTaca.jpg">

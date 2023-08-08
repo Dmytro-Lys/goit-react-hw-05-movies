@@ -2,6 +2,7 @@ import { Form, Input, Icon, Button } from "./SearchBox.styled";
 import { useState } from "react";
 import Notiflix from 'notiflix';
 import 'notiflix/src/notiflix.css';
+import PropTypes from "prop-types";
 
 export const SearchBox = ({ onSubmit }) => {
     const [value, setValue] = useState("")
@@ -24,3 +25,7 @@ export const SearchBox = ({ onSubmit }) => {
     </Form>
   );
 };
+
+SearchBox.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+}
